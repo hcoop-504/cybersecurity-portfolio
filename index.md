@@ -7,6 +7,10 @@ title: Home
 
 Welcome to my cybersecurity portfolio. I am a cybersecurity student building hands-on skills through labs, virtual machines, networking projects, and Capture The Flag (CTF) challenges. This site highlights some of the work I have completed and what I learned from it.
 
+## Featured Write-Up
+
+- [Cyber Skyline CTF Write-Up](./ctf/cyber-skyline-writeup.html)
+
 ## About Me
 
 I became interested in cybersecurity through hands-on technical problem solving and building labs that let me learn by doing. I enjoy working with networking, Linux, virtual machines, and security challenges because they push me to think critically and apply concepts in realistic ways.
