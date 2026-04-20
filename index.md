@@ -35,11 +35,11 @@ Participating in CTF challenges helped me build confidence in problem solving, r
 
 ## Performance / Scouting Reports
 
-Add your public performance links here if your instructor wants them visible.
+The following public performance materials reflect my participation in cybersecurity competitions and challenge-based learning:
 
 - [Cyber Skyline / NCL Scouting Report](PASTE-YOUR-PUBLIC-LINK-HERE)
 
 ## Contact / Professional Links
 
-- GitHub: [Your GitHub Profile](https://github.com/YOUR-USERNAME)
-- LinkedIn: [Your LinkedIn](PASTE-LINK-HERE)
+- [GitHub Profile](https://github.com/hcoop-504)
+- [LinkedIn](PASTE-LINK-HERE)
