@@ -3,13 +3,13 @@ layout: default
 title: Home
 ---
 
-# Herbert Cooper – Cybersecurity Portfolio
+# Herb Cooper – Cybersecurity Portfolio
 
-Welcome to my cybersecurity portfolio. I am a cybersecurity student building hands-on skills through labs, virtual machines, networking projects, and Capture The Flag (CTF) challenges. This site highlights some of the work I have completed and what I learned from it.
+Welcome to my cybersecurity portfolio. I am a cybersecurity student at SANS Technology Institute building hands-on skills through labs, virtual machines, networking projects, and Capture The Flag (CTF) challenges. This site highlights some of the work I have completed and what I learned from it.
 
 ## About Me
 
-I became interested in cybersecurity through hands-on technical problem solving and building labs that let me learn by doing. I enjoy working with networking, Linux, virtual machines, and security challenges because they push me to think critically and apply concepts in realistic ways.
+I became interested in cybersecurity by seeing how much cybercrime has increased and how important it is to defend systems, networks, and information. I was especially drawn to the field because it requires knowledge across many technical areas, such as networking, programming, Linux, and web applications. I enjoy cybersecurity because it is both challenging and constantly changing, which pushes me to keep learning and developing new skills.
 
 ## What This Portfolio Shows
 
@@ -37,9 +37,9 @@ Participating in CTF challenges helped me build confidence in problem solving, r
 
 The following public performance materials reflect my participation in cybersecurity competitions and challenge-based learning:
 
-- [Cyber Skyline / NCL Scouting Report](PASTE-YOUR-PUBLIC-LINK-HERE)
+- [Cyber Skyline / NCL Scouting Report](https://github.com/hcoop-504)
 
 ## Contact / Professional Links
 
 - [GitHub Profile](https://github.com/hcoop-504)
-- [LinkedIn](PASTE-LINK-HERE)
+- [LinkedIn](www.linkedin.com/in/herbert-cooperii)
