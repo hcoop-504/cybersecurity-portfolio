@@ -73,7 +73,7 @@ This topology formed the foundation for later phases of the project, including i
 
 After the topology was in place, pfSense was configured to support the internal environment. This included enabling services such as DHCP so that systems inside the lab could communicate using correct addressing and network settings.
 
-You can add your screenshot here showing the pfSense services dashboard after DHCP setup.
+![pfSense Services Dashboard](../assets/photo_assets/pfsense-services-dashboard.png)
 
 ```md
-![pfSense Services Dashboard](../assets/photo_assets/pfsense-services-dashboard.png)
+
