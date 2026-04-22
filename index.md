@@ -48,6 +48,6 @@ The following public performance materials reflect my participation in cybersecu
 
 ### Enterprise Network Hardening Lab with pfSense, Snort, and Tripwire
 
-This project demonstrates hands-on experience building and securing a virtual enterprise network in GNS3 using pfSense for firewall and routing, Snort for intrusion detection and prevention, and Tripwire for host-based integrity monitoring.
+This project demonstrates hands-on experience building and securing a virtual enterprise network in GNS3 using pfSense for firewall and routing, Snort for intrusion detection and prevention, and Tripwire for host-based integrity monitoring. (click image to continue)
 
 [![GNS3 Network Hardening Lab](./assets/photo_assets/network-hardening-topology.png)](./projects/network-hardening-pfsense-snort-tripwire.html)
