@@ -65,7 +65,7 @@ This project helped me build and demonstrate skills in:
 
 The lab began with building the security environment in GNS3. This provided the overall layout for the protected network and made it possible to visualize how pfSense, internal hosts, management systems, and internet-facing resources interacted.
 
-![GNS3 Workspace](../assets/photo_assets/gns3-topology.png)
+![GNS3 Workspace](../assets/photo_assets/network-hardening-topology.png)
 
 This topology formed the foundation for later phases of the project, including internal hardening, internet access control, intrusion detection, and host integrity monitoring.
 
