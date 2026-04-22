@@ -46,4 +46,4 @@ The following public performance materials reflect my participation in cybersecu
 
 ## Projects
 ### GNS3
-![GNS3 Lab Topology](../assets/photo_assets/gns3-topology.png)
+![GNS3 Lab Topology](./assets/photo_assets/gns3-topology.png)
