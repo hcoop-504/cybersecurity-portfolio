@@ -164,7 +164,8 @@ I stayed focused on the challenge wording and chose the vulnerability directly t
 
 **Objective:** Exploit the vulnerable sudo installation to gain root access.
 Link to exploit:
-https://www.exploit-db.com/exploits/52352
+**Associated CVE:** [CVE-2025-32463](https://nvd.nist.gov/vuln/detail/CVE-2025-32463)  
+**Exploit reference:** [Exploit-DB 52352](https://www.exploit-db.com/exploits/52352)
 
 **Actions Taken:**  
 Before attempting exploitation, I verified that the GNU C compiler was installed, since the exploit required compiling a malicious shared object. After confirming its presence, I created a Bash script that set up a temporary working environment, wrote a malicious C shared library, created a controlled `nsswitch.conf`, compiled the library, and then used `sudo -R` to trigger the vulnerable behavior.
