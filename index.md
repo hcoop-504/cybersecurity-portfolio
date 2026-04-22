@@ -37,13 +37,19 @@ Participating in CTF challenges helped me build confidence in problem solving, r
 
 The following public performance materials reflect my participation in cybersecurity competitions and challenge-based learning:
 
-- [Cyber Skyline / NCL Scouting Report](https://github.com/hcoop-504)
+- [Cyber Skyline / NCL Scouting Report](PASTE-YOUR-PUBLIC-LINK-HERE)
 
 ## Contact / Professional Links
 
 - [GitHub Profile](https://github.com/hcoop-504)
-- [LinkedIn](www.linkedin.com/in/herbert-cooperii)
+- [LinkedIn](https://www.linkedin.com/in/herbert-cooperii)
 
 ## Projects
-### GNS3
+
+### GNS3 Networking Lab
+
+This project highlights hands-on networking labs built in GNS3 and VirtualBox to practice topology design, connectivity, routing, and troubleshooting.
+
 ![GNS3 Lab Topology](./assets/photo_assets/gns3-topology.png)
+
+- [View GNS3 Project Page](./projects/gns3-networking-lab.html)
