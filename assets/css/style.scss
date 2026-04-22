@@ -3,34 +3,34 @@
 
 @import "{{ site.theme }}";
 
-body {
-  background-color: #121212;
-  color: #e6e6e6;
-}
-
+body,
 .site-header,
 .site-footer,
 .page-content,
-.wrapper {
-  background-color: #121212;
-  color: #e6e6e6;
+.wrapper,
+.main-content,
+.post-content,
+.home {
+  background-color: #0f172a;
+  color: #e2e8f0;
 }
 
 a {
-  color: #7db7ff;
+  color: #7dd3fc;
 }
 
 a:visited {
-  color: #b18cff;
+  color: #c4b5fd;
 }
 
 pre,
 code,
 .highlighter-rouge .highlight {
-  background-color: #1e1e1e;
-  color: #f5f5f5;
+  background-color: #111827;
+  color: #f8fafc;
 }
 
-table {
-  color: #e6e6e6;
+.site-title,
+.page-link {
+  color: #e2e8f0;
 }
