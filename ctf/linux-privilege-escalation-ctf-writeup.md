@@ -7,7 +7,7 @@ title: Linux Privilege Escalation CTF Write-Up
 
 ---
 
-# CTF Challenge Solution Write-Up
+# CTF Write-Up: Linux Privilege Escalation
 
 ## 1. Challenge Overview
 
