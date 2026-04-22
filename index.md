@@ -31,7 +31,7 @@ Participating in CTF challenges helped me build confidence in problem solving, r
 
 ## Featured Write-Up
 
-- [Cyber Skyline CTF Write-Up](./ctf/cyber-skyline-writeup.html)
+- [Cyber Skyline CTF Write-Up](./ctf/linux-privilege-escalation-ctf-writeup.html)
 
 ## Performance / Scouting Reports
 
