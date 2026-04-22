@@ -3,8 +3,6 @@ layout: default
 title: Home
 ---
 
-# Herb Cooper – Cybersecurity Portfolio
-
 Welcome to my cybersecurity portfolio. I am a cybersecurity student at SANS Technology Institute building hands-on skills through labs, virtual machines, networking projects, and Capture The Flag (CTF) challenges. This site highlights some of the work I have completed and what I learned from it.
 
 ## About Me
