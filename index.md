@@ -50,6 +50,4 @@ The following public performance materials reflect my participation in cybersecu
 
 This project highlights hands-on networking labs built in GNS3 and VirtualBox to practice topology design, connectivity, routing, and troubleshooting.
 
-![GNS3 Lab Topology](./assets/photo_assets/gns3-topology.png)
-
-- [View GNS3 Project Page](./projects/gns3-networking-lab.html)
+[![GNS3 Lab Topology](./assets/photo_assets/gns3-topology.png)](./projects/gns3-networking-lab.html)
