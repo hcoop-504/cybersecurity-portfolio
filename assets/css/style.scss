@@ -1,0 +1,36 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+body {
+  background-color: #121212;
+  color: #e6e6e6;
+}
+
+.site-header,
+.site-footer,
+.page-content,
+.wrapper {
+  background-color: #121212;
+  color: #e6e6e6;
+}
+
+a {
+  color: #7db7ff;
+}
+
+a:visited {
+  color: #b18cff;
+}
+
+pre,
+code,
+.highlighter-rouge .highlight {
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+}
+
+table {
+  color: #e6e6e6;
+}
