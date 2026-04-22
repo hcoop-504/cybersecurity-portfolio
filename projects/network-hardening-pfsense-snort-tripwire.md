@@ -115,7 +115,7 @@ This phase showed the balance between security and usability. A hardened environ
 A major part of this lab was implementing Snort as a network intrusion detection and prevention tool. Snort was integrated with the pfSense environment to provide visibility into suspicious or malicious traffic and to strengthen network monitoring capabilities.
 
 ![Snort Environment](../assets/photo_assets/snort-environment.png)
-![pf Sense GUI](../assets/photo_assets/.png)
+![pf Sense GUI](../assets/photo_assets/pfsense-gui.png)
 
 This portion of the lab added a detection and response layer to the firewall-based protections already in place. While pfSense controlled which traffic was allowed, Snort provided additional analysis to identify potentially malicious behavior on the network.
 
