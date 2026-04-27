@@ -14,10 +14,10 @@ title: Linux Privilege Escalation CTF Write-Up
 **Challenge Question:**  
 We managed to break into a Liber8tion server. Why they thought the password `liber8` would be hard to guess is...well, anybody's guess. Now it's time to look for vulnerabilities on the server. Can you escalate your privileges to root?
 
-Look at the script inside your home directory. What is the name of the tool which this script invokes?  
-What is the version of the native system tool that the script detects as potentially vulnerable (NOT kernel exploits)?  
-What CVE(s) are associated with that version of the software (you only need to submit one; format `CVE-YYYY-DDDDD`)?  
-Exploit the vulnerability; what is the value of the flag in `/root/flag.txt`?
+1. Look at the script inside your home directory. What is the name of the tool which this script invokes?  
+2. What is the version of the native system tool that the script detects as potentially vulnerable (NOT kernel exploits)?  
+3. What CVE(s) are associated with that version of the software (you only need to submit one; format `CVE-YYYY-DDDDD`)?  
+4. Exploit the vulnerability; what is the value of the flag in `/root/flag.txt`?
 
 **Category:** Linux Privilege Escalation
 
@@ -32,29 +32,29 @@ Exploit the vulnerability; what is the value of the flag in `/root/flag.txt`?
 ## 2. Initial Thoughts and Information Gathering
 
 **First Impressions:**  
-This challenge presented a Linux privilege escalation scenario in which initial access had already been obtained using weak credentials. The wording of the prompt strongly suggested that the intended path to root would begin with examining a script located in the current user’s home directory. This was an important clue because it implied that the challenge was guiding the participant toward a particular enumeration method rather than requiring blind manual discovery from the start.
+This challenge presented a Linux privilege escalation scenario in which initial access had already been obtained using weak credentials. The wording of the prompt strongly suggested that the intended path to root would begin with examining a script located in the current user’s home directory. This was an important clue because it implied that the challenge was guiding you toward a particular enumeration method rather than requiring blind manual discovery from the start.
 
-Another important detail was the explicit instruction stating that the vulnerable tool identified by the script would **not** involve kernel exploits. This narrowed the focus significantly. In Linux privilege escalation challenges, automated enumeration tools frequently produce many findings, especially kernel-based possibilities. Since the challenge removed kernel exploits from consideration, I anticipated that the correct path would involve a userland binary or local system utility rather than the Linux kernel itself.
+Another important detail was the instruction stating that the vulnerable tool identified by the script would **not** involve kernel exploits. This narrowed down the focus to a userland binary or local system utility rather than the Linux kernel itself. 
 
 **Information Gathering Steps:**  
-I began by confirming the current working directory and listing the contents of the home directory. This revealed a script named `run-linpeas.sh`. The filename itself immediately indicated that the script likely invoked **LinPEAS**, a widely used Linux privilege escalation enumeration tool. This provided an initial answer to the first challenge question before even running the script.
+I began by examining the contents of the home directory. This revealed a script named `run-linpeas.sh`. The filename itself shows that the script likely invoked **LinPEAS**, a widely used Linux privilege escalation enumeration tool. This provided an initial answer to the first challenge question before even running the script.
 
-The next step was to execute the script and review the output systematically. LinPEAS generated extensive enumeration data, including system details, user information, environment settings, and possible privilege escalation vectors. Among the results, the most relevant section identified the installed sudo version as `1.9.16p2`. Because the challenge specifically excluded kernel exploits, I disregarded the kernel-related findings reported by LinPEAS and focused instead on sudo as the intended attack surface.
+The next step was to execute the script and examine the output. LinPEAS generated information including system details, user information, environment settings, and possible privilege escalation vectors. Among the results, the most relevant section identified the installed sudo version as `1.9.16p2`. Because the challenge specifically excluded kernel exploits, I disregarded the kernel-related findings reported by LinPEAS and focused instead on sudo as the intended attack surface.
 
 ---
 
 ## 3. Methodology and Strategy
 
 **Chosen Approach:**  
-The selected methodology was to follow the challenge’s intended path by first identifying and executing the helper script, then using its results to isolate a likely userland privilege escalation vector. This approach was chosen because the prompt explicitly directed attention to the script in the home directory, making it the most efficient and logical starting point.
+The methodology was to follow the challenge’s intended path by first identifying and running the helper script, then using its results to isolate a likely user privilege escalation vector. This approach was chosen because the challenge points attention to the script in the home directory, making it a logical starting point.
 
-Once LinPEAS identified a specific version of sudo, the next stage was to determine whether that version corresponded to a known 2025 vulnerability. Since the challenge required the solver to submit both the version and an associated CVE, the most appropriate strategy was to pivot from enumeration to vulnerability mapping. After identifying the correct CVE, the final step was exploitation: obtain a root shell and retrieve the contents of `/root/flag.txt`.
+Once LinPEAS identified a specific version of sudo, the next step was to search for a sudo `1.9.16p2` vulnerability which found a known 2025 vulnerability. Since the challenge required you to submit both the version and an associated CVE, the most appropriate strategy going forward was to exploit the vulnerability, obtain a root shell and retrieve the contents of `/root/flag.txt`.
 
 **Tools and Techniques:**
 
 - **Basic Linux shell commands** – Used for directory inspection, file listing, and reading the final flag.
     
-- **LinPEAS** – Used to enumerate local privilege escalation vectors and identify potentially vulnerable software versions.
+- **LinPEAS** – Used to explore privilege escalation vectors and identify potentially vulnerable software versions.
     
 - **Version analysis / vulnerability mapping** – Used to associate the detected sudo version with a known 2025 CVE.
     
@@ -87,7 +87,7 @@ ls -la
 The home directory contained a file named `run-linpeas.sh`. From the filename, it was clear that the script invoked **LinPEAS**, a Linux privilege escalation enumeration utility.
 
 **Decisions Made:**  
-At this point, I concluded that the answer to the first question was **linpeas**. I then proceeded to execute the script rather than manually investigating the system from scratch, since the challenge clearly intended the solver to use it.
+At this point, I concluded that the answer to the first question was **linpeas**. I then proceeded to execute the script since the challenge clearly intended the person solving it to use the script.
 
 **Obstacles Encountered:**  
 No obstacles were encountered during this stage.
@@ -102,7 +102,7 @@ No adjustments were necessary.
 **Objective:** Execute the provided script and identify any non-kernel privilege escalation vectors.
 
 **Actions Taken:**  
-I ran the script from the home directory and examined the resulting LinPEAS output. The tool returned a wide range of system information and possible attack paths.
+I ran the script from the home directory and examined the LinPEAS output. The tool returned a wide range of system information and possible attack paths.
 
 **Tools/Commands Used:**
 
@@ -120,7 +120,7 @@ Sudo version 1.9.16p2
 LinPEAS also displayed kernel exploit suggestions, but those were intentionally excluded by the challenge instructions.
 
 **Decisions Made:**  
-Because the challenge explicitly said to focus on a vulnerable tool that was **not** a kernel exploit, I excluded the kernel findings from consideration and chose to investigate the sudo version instead. A quick search for "Sudo version 1.9.16p2 2025 cve" revealed CVE-2025-32463 as a critical "chroot" privilege escalation vulnerability.
+Because the challenge clearly said to focus on a vulnerable tool that was **not** a kernel exploit, I chose to look at the sudo version instead. A quick search for "Sudo version 1.9.16p2 2025 cve" revealed CVE-2025-32463 as a critical "chroot" privilege escalation vulnerability.
 
 This directly answered the second question: the potentially vulnerable native system tool version was **1.9.16p2**.
 
@@ -137,13 +137,13 @@ I narrowed the scope of the investigation to the sudo finding and ignored unrela
 **Objective:** Determine which 2025 CVE was associated with sudo version `1.9.16p2`.
 
 **Actions Taken:**  
-After identifying the sudo version, I mapped it to a known local privilege escalation vulnerability affecting vulnerable sudo releases prior to the corrected version.
+After identifying the sudo version, I linked it known local privilege escalation vulnerability affecting vulnerable sudo releases prior to the corrected version.
 
 **Tools/Commands Used:**  
-The main “tool” at this stage was analysis of the LinPEAS output and confirming the vulnerability correlation based on the detected version via an online search.
+The main “tool” at this stage was analyzing the LinPEAS output and confirming the vulnerability correlation based on the detected version via an online search.
 
 **Intermediate Findings:**  
-The relevant CVE associated with this vulnerable sudo version was:
+The relevant CVE associated with sudo version `1.9.16p2`:
 
 ```text
 CVE-2025-32463
@@ -153,7 +153,7 @@ CVE-2025-32463
 I selected **CVE-2025-32463** because it matched the detected sudo version and fit the challenge requirement that the vulnerability be from 2025. This satisfied the third challenge question.
 
 **Obstacles Encountered:**  
-The main obstacle here was ensuring that I did not confuse the intended userland vulnerability with the unrelated kernel CVEs also displayed by LinPEAS.
+The main obstacle here was ensuring that I did not confuse the intended user vulnerability with the unrelated kernel CVEs also displayed by LinPEAS.
 
 **Adjustments:**  
 I stayed focused on the challenge wording and chose the vulnerability directly tied to the detected sudo version.
@@ -168,7 +168,7 @@ Link to exploit:
 **Exploit reference:** [Exploit-DB 52352](https://www.exploit-db.com/exploits/52352)
 
 **Actions Taken:**  
-Before attempting exploitation, I verified that the GNU C compiler was installed, since the exploit required compiling a malicious shared object. After confirming its presence, I created a Bash script that set up a temporary working environment, wrote a malicious C shared library, created a controlled `nsswitch.conf`, compiled the library, and then used `sudo -R` to trigger the vulnerable behavior.
+Before attempting exploitation, I verified that I had gcc installed, since the exploit requires compiling a malicious shared object. After confirming I had gcc , I created a Bash script that set up a temporary working environment, wrote a malicious C shared library, created a controlled `nsswitch.conf`, compiled the library, and then used `sudo -R` to trigger the vulnerable behavior.
 
 **Tools/Commands Used:**
 
@@ -236,7 +236,7 @@ uid=0(root) gid=0(root) groups=0(root),1001(liber8)
 Once the shell was confirmed to be running as root, the next decision was straightforward: immediately access the target file `/root/flag.txt`.
 
 **Obstacles Encountered:**  
-There was a brief irregularity in terminal output while creating the exploit script, but it did not affect compilation or execution. The exploit still completed successfully.
+There were some errors in the terminal output while creating the exploit script, but it did not affect compilation or execution. The exploit still completed successfully.
 
 **Adjustments:**  
 No alternate exploit path was needed because the first approach worked successfully.
@@ -289,8 +289,8 @@ None.
 
 ## Conclusion
 
-This challenge was an effective introduction to Linux privilege escalation through version-based vulnerability identification. Rather than requiring extensive manual discovery, the challenge intentionally guided the solver toward a provided enumeration script, reinforcing the importance of paying close attention to the clues embedded in the environment. Running the script quickly revealed a potentially vulnerable sudo version, and the challenge instructions helped narrow the investigation by explicitly excluding kernel exploits.
+This challenge was a Linux privilege escalation through version-based vulnerability. The challenge guides the solver toward a provided enumeration script, which shows the importance of looking for clues embedded in the environment. Running the script quickly revealed a potentially vulnerable sudo version, and the challenge instructions helped narrow the investigation by explicitly excluding kernel exploits.
 
-A key takeaway from this exercise was the importance of disciplined enumeration. Tools such as LinPEAS can generate a large amount of output, and not every result is relevant. In this case, the ability to separate the intended userland vulnerability from unrelated kernel suggestions was essential. Another important lesson was that software version information alone can be enough to map a system to a known privilege escalation vulnerability when paired with careful reasoning and a structured methodology.
+A key takeaway from this exercise was the importance of choosing the right direction when enumerating. Tools such as LinPEAS can generate a large amount of output, and not every result is relevant. In this case, the ability to identify the intended user vulnerability from the unrelated kernel suggestions was key to solving this challenge. Another important lesson was that software version information alone can be enough to find a known privilege escalation vulnerability.
 
 I selected this challenge because it demonstrates a realistic privilege escalation workflow in a manageable format: identify a starting clue, enumerate the host, isolate the correct finding, map it to a public vulnerability, exploit it, and confirm success by retrieving the flag. For students attempting similar Linux privilege escalation challenges, I would recommend beginning with careful inspection of the environment, following obvious clues before branching into broader enumeration, and reading the wording of the prompt very closely. Often, the challenge itself tells you what to ignore just as much as it tells you where to look.
